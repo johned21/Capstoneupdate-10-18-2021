@@ -1,0 +1,289 @@
+@section('mytitle', '| Dashboard')
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
+    @include('component.user-sidebar')
+
+    <div class="dashboard-content">
+        <div class="text">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-10 offset-md-1 mt-4">
+                                            <h1 class="mb-5" style="font-size: 40px;">Personal Information</h1>
+                                            
+                                            {!! Form::hidden('id', null, ['class'=>'form-control', 'id'=>'modal-input-id']) !!}
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <div class="col form-group @error('firstName') has-error @enderror">
+                                                        <label for="firstName" class="form-label">First Name:</label>
+                                                        {!! Form::text('firstName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                        <span class="errspan" id="errspan">{{ $errors->first('firstName') }}</span>
+                                                    </div>
+                                                    <div class="col form-group @error('lastName') has-error @enderror">
+                                                        <label for="lastName" class="form-label">Last Name:</label>
+                                                        {!! Form::text('lastName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-lname']) !!}
+                                                        <span class="errspan" id="errspan">{{ $errors->first('lastName') }}</span>
+                                                    </div>
+                                                    <div class="col form-group @error('middleName') has-error @enderror">
+                                                        <label for="middleName" class="form-label">Middle Name:</label>
+                                                        {!! Form::text('middleName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-mname']) !!}
+                                                        <span class="errspan" id="errspan">{{ $errors->first('middleName') }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <div class="col-md-2 @error('gender') has-error @enderror">
+                                                        {!! Form::label('gender','Gender',[],false) !!}
+                                                        {{Form::select('gender', [
+                                                            2 => 'Male',
+                                                            1 => 'Female',
+                                                        ], null, ['class'=>'form-control form-select', 'id'=>'gender'])}}
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="col form-group @error('birthDate') has-error @enderror">
+                                                            <label for="birthDate" class="form-label">Birth Date:</label>
+                                                            {!! Form::date('birthDate', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('birthDate') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col form-group @error('birthPlace') has-error @enderror">
+                                                            <label for="birthPlace" class="form-label">Birth Place:</label>
+                                                            {!! Form::text('birthPlace', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('birthPlace') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('civilStatus') has-error @enderror">
+                                                            <label for="civilStatus" class="form-label">Civil Status:</label>
+                                                            {!! Form::text('civilStatus', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('civilStatus') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('nationality') has-error @enderror">
+                                                            <label for="nationality" class="form-label">Nationality:</label>
+                                                            {!! Form::text('nationality', null, ['class'=>'form-control',  'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('nationality') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('religion') has-error @enderror">
+                                                            <label for="religion" class="form-label">Religion:</label>
+                                                            {!! Form::text('religion', null, ['class'=>'form-control',  'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('religion') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col form-group @error('fatherName') has-error @enderror">
+                                                                <label for="fatherName" class="form-label">Father:</label><br>
+                                                                {!! Form::text('fatherName', null, ['class'=>'form-control', 'placeholder'=>'Father Name', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('fatherName') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('fatherOccup') has-error @enderror">
+                                                                {!! Form::text('fatherOccup', null, ['class'=>'form-control', 'placeholder'=>'Father Occupation', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('fatherOccup') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('fatherContact') has-error @enderror">
+                                                                {!! Form::text('fatherContact', null, ['class'=>'form-control', 'placeholder'=>'Father Contact', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('fatherContact') }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col form-group @error('motherName') has-error @enderror">
+                                                                <label for="motherName" class="form-label">Mother:</label><br>
+                                                                {!! Form::text('motherName', null, ['class'=>'form-control', 'placeholder'=>'Mother Name', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('motherName') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('motherOccup') has-error @enderror">
+                                                                {!! Form::text('motherOccup', null, ['class'=>'form-control', 'placeholder'=>'Mother Occupation', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('motherOccup') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('motherContact') has-error @enderror">
+                                                                {!! Form::text('motherContact', null, ['class'=>'form-control', 'placeholder'=>'Mother Contact', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('motherContact') }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <label for="guardianName" class="form-label">Guardian:</label>
+                                                    <div class="col-md-5">
+                                                        <div class="col form-group @error('guardianName') has-error @enderror">
+                                                            {!! Form::text('guardianName', null, ['class'=>'form-control', 'placeholder'=>'Guardian Name', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('guardianName') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="col form-group @error('guardianContact') has-error @enderror">
+                                                            {!! Form::text('guardianContact', null, ['class'=>'form-control', 'placeholder'=>'Guardian Contact', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('guardianContact') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <label for="address" class="form-label">Address:</label>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('barangay') has-error @enderror">
+                                                            {!! Form::text('barangay', null, ['class'=>'form-control', 'placeholder'=>'Barangay', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('barangay') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('town') has-error @enderror">
+                                                            {!! Form::text('town', null, ['class'=>'form-control', 'placeholder'=>'Town', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('town') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('province') has-error @enderror">
+                                                            {!! Form::text('province', null, ['class'=>'form-control', 'placeholder'=>'Province', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('province') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <div class="col-md-2 @error('grade_LVL') has-error @enderror">
+                                                        {!! Form::label('grade_LVL','Grade Level',[],false) !!}
+                                                        {{Form::select('grade_LVL', [
+                                                            1 => 'Grade 7',
+                                                            2 => 'Grade 8',
+                                                            3 => 'Grade 9',
+                                                            4 => 'Grade 10',
+                                                            5 => 'Grade 11',
+                                                            6 => 'Grade 12',
+                                                        ], null, ['class'=>'form-control form-select', 'id'=>'grade_LVL'])}}
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-5">
+                                                <div class="row">
+                                                    <label for="elementary" class="form-label">Elementary:</label><br>
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col form-group @error('elemSchool') has-error @enderror">
+                                                                {!! Form::text('elemSchool', null, ['class'=>'form-control', 'placeholder'=>'Elementary School', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('elemSchool') }}</span>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('elemSchlAddr') has-error @enderror">
+                                                                {!! Form::text('elemSchlAddr', null, ['class'=>'form-control', 'placeholder'=>'Elementary School Address', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('elemSchlAddr') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('elemYrAttnd') has-error @enderror">
+                                                                {!! Form::text('elemYrAttnd', null, ['class'=>'form-control', 'placeholder'=>'Elementary Year Attend', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('elemYrAttnd') }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <div class="row">
+                                                    <label for="secondary" class="form-label">Secondary:</label><br>
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col form-group @error('secondarySchool') has-error @enderror">
+                                                                {!! Form::text('secondarySchool', null, ['class'=>'form-control', 'placeholder'=>'Secondary School', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('secondarySchool') }}</span>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('secondarySchlAddr') has-error @enderror">
+                                                                {!! Form::text('secondarySchlAddr', null, ['class'=>'form-control', 'placeholder'=>'Secondary School Address', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('secondarySchlAddr') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col form-group @error('secondaryYrAttnd') has-error @enderror">
+                                                                {!! Form::text('secondaryYrAttnd', null, ['class'=>'form-control', 'placeholder'=>'Secondary Year Attend', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                                <span class="errspan" id="errspan">{{ $errors->first('secondaryYrAttnd') }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        let btn = document.querySelector("#btn-menu");
+        let sidebar = document.querySelector(".sidebar");
+        let searchBtn = document.querySelector(".bx-search");
+
+        btn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+        searchBtn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+
+        jQuery(document).ready(function($) {
+        $('#example').DataTable();
+        $(document).on('click', '#example tbody tr button', function() {       
+            $("#modaldata tbody tr").html("");
+            $("#modaldata tbody tr").html($(this).closest("tr").html());
+            $("#exampleModal").modal("show");
+        });
+        } );        
+    </script>
+</div>
+@endsection
