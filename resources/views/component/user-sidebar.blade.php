@@ -21,16 +21,9 @@
         <div class="profile-images-card">
 
             <div class="profile-images">
-                <img src="../img/pp.png" id="upload-img">
+                <img src="../img/pp.png" id="upload-imgg">
             </div>
 
-            <div class="custom-file">
-                <label for="fileupload">
-                    <i class='bx bx-image-add ml-3' style="font-size: 25px;"></i>
-                    <span class="links-name text-white">Upload Photo</span>
-                </label>
-                <input type="file" id="fileupload">
-            </div>
             <h4>{{ auth()->user()->firstName }}</h4>
 
         </div>
@@ -64,12 +57,6 @@
 
 
     <script>
-	$(function(){
-		$("#fileupload").change(function(event) {
-			var x = URL.createObjectURL(event.target.files[0]);
-			$("#upload-img").attr("src",x);
-			console.log(event);
-		});
-	})
+	
 </script>
 </div>

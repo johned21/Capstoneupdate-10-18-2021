@@ -23,23 +23,56 @@
                                             <h1 class="mb-5" style="font-size: 40px;">Personal Information</h1>
                                             
                                             {!! Form::hidden('id', null, ['class'=>'form-control', 'id'=>'modal-input-id']) !!}
+                                            <div class="mb-5">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="profile-card">
+                                                            <div class="row">
+                                                                <div class="col-md-8">
+                                                                    <div class="profile">
+                                                                        <img src="../img/pp.png" id="upload-img">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mt-5">
+                                                                    <div class="upload-file">
+                                                                        <label for="fileupload">
+                                                                            <span class="links-name text-white">Upload Photo</span>
+                                                                        </label>
+                                                                        <input type="file" id="fileupload">
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
                                             <div class="mb-1">
                                                 <div class="row">
-                                                    <div class="col form-group @error('firstName') has-error @enderror">
-                                                        <label for="firstName" class="form-label">First Name:</label>
-                                                        {!! Form::text('firstName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-fname']) !!}
-                                                        <span class="errspan" id="errspan">{{ $errors->first('firstName') }}</span>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('firstName') has-error @enderror">
+                                                            <label for="firstName" class="form-label">First Name:</label>
+                                                            {!! Form::text('firstName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('firstName') }}</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="col form-group @error('lastName') has-error @enderror">
-                                                        <label for="lastName" class="form-label">Last Name:</label>
-                                                        {!! Form::text('lastName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-lname']) !!}
-                                                        <span class="errspan" id="errspan">{{ $errors->first('lastName') }}</span>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('lastName') has-error @enderror">
+                                                            <label for="lastName" class="form-label">Last Name:</label>
+                                                            {!! Form::text('lastName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-lname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('lastName') }}</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="col form-group @error('middleName') has-error @enderror">
-                                                        <label for="middleName" class="form-label">Middle Name:</label>
-                                                        {!! Form::text('middleName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-mname']) !!}
-                                                        <span class="errspan" id="errspan">{{ $errors->first('middleName') }}</span>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('middleName') has-error @enderror">
+                                                            <label for="middleName" class="form-label">Middle Name:</label>
+                                                            {!! Form::text('middleName', null, ['class'=>'form-control', 'required' => '', 'id'=>'modal-input-mname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('middleName') }}</span>
+                                                        </div>
                                                     </div>
+                                                    
+                                                
                                                 </div>
                                             </div>
                                             <div class="mb-1">
@@ -67,6 +100,31 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <label for="address" class="form-label">Address:</label>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('barangay') has-error @enderror">
+                                                            {!! Form::text('barangay', null, ['class'=>'form-control', 'placeholder'=>'Barangay', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('barangay') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('town') has-error @enderror">
+                                                            {!! Form::text('town', null, ['class'=>'form-control', 'placeholder'=>'Town', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('town') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="col form-group @error('province') has-error @enderror">
+                                                            {!! Form::text('province', null, ['class'=>'form-control', 'placeholder'=>'Province', 'required' => '', 'id'=>'modal-input-fname']) !!}
+                                                            <span class="errspan" id="errspan">{{ $errors->first('province') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="mb-1">
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -157,29 +215,7 @@
                                                     
                                                 </div>
                                             </div>
-                                            <div class="mb-1">
-                                                <div class="row">
-                                                    <label for="address" class="form-label">Address:</label>
-                                                    <div class="col-md-4">
-                                                        <div class="col form-group @error('barangay') has-error @enderror">
-                                                            {!! Form::text('barangay', null, ['class'=>'form-control', 'placeholder'=>'Barangay', 'required' => '', 'id'=>'modal-input-fname']) !!}
-                                                            <span class="errspan" id="errspan">{{ $errors->first('barangay') }}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="col form-group @error('town') has-error @enderror">
-                                                            {!! Form::text('town', null, ['class'=>'form-control', 'placeholder'=>'Town', 'required' => '', 'id'=>'modal-input-fname']) !!}
-                                                            <span class="errspan" id="errspan">{{ $errors->first('town') }}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="col form-group @error('province') has-error @enderror">
-                                                            {!! Form::text('province', null, ['class'=>'form-control', 'placeholder'=>'Province', 'required' => '', 'id'=>'modal-input-fname']) !!}
-                                                            <span class="errspan" id="errspan">{{ $errors->first('province') }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
 
                                             <div class="mb-1">
                                                 <div class="row">
@@ -241,7 +277,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col form-group @error('secondaryYrAttnd') has-error @enderror">
+                                                            <div class="col form-group mb-5 @error('secondaryYrAttnd') has-error @enderror">
                                                                 {!! Form::text('secondaryYrAttnd', null, ['class'=>'form-control', 'placeholder'=>'Secondary Year Attend', 'required' => '', 'id'=>'modal-input-fname']) !!}
                                                                 <span class="errspan" id="errspan">{{ $errors->first('secondaryYrAttnd') }}</span>
                                                             </div>
@@ -249,6 +285,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <button class="btn btn-primary mb-5" id="submitBtn">Submit</button>
 
                                         </div>
                                     </div>
@@ -283,7 +321,16 @@
             $("#modaldata tbody tr").html($(this).closest("tr").html());
             $("#exampleModal").modal("show");
         });
-        } );        
+        } );       
+
+
+        $(function(){
+            $("#fileupload").change(function(event) {
+                var x = URL.createObjectURL(event.target.files[0]);
+                $("#upload-img").attr("src",x);
+                console.log(event);
+            });
+        }) 
     </script>
 </div>
 @endsection
